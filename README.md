@@ -41,3 +41,7 @@ public class SampleApplication extends Application {
   }
 }
 ```
+## TODO
+- A way to toggle on/off the baseline while using the application
+- A way to change color of the baseline
+- A way to set color for every 4dp, 8dp, 16dp... baseline
