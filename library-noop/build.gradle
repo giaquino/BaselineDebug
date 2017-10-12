@@ -19,3 +19,5 @@ android {
 
 dependencies {
 }
+
+apply from: rootProject.file("gradle/javadoc.gradle")
