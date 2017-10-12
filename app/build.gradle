@@ -1,0 +1,36 @@
+apply plugin: "com.android.application"
+
+android {
+  compileSdkVersion rootProject.ext.compileSdkVersion
+  buildToolsVersion rootProject.ext.buildToolsVersion
+
+  defaultConfig {
+    applicationId "com.giaquino.baselinedebug.sample"
+    minSdkVersion rootProject.ext.minSdkVersion
+    targetSdkVersion rootProject.ext.targetSdkVersion
+    versionName rootProject.ext.versionName
+    versionCode rootProject.ext.versionCode
+    archivesBaseName = "app-${versionName}"
+    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+  }
+  buildTypes {
+    release {
+      minifyEnabled true
+      proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+    }
+  }
+  compileOptions {
+    sourceCompatibility rootProject.ext.sourceCompatibility
+    targetCompatibility rootProject.ext.targetCompatibility
+  }
+  lintOptions {
+    abortOnError false
+  }
+}
+
+ext.supportVersion = rootProject.ext.supportVersion
+
+dependencies {
+  compile project(':library')
+  compile "com.android.support:appcompat-v7:$supportVersion"
+}
