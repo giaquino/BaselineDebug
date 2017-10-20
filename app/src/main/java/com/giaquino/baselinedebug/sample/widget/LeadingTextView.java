@@ -131,34 +131,27 @@ public class LeadingTextView extends BaselineGridTextView
   }
 
   /**
-   * Compute the best possible leading space base on text size
+   * Compute the leading space base on text size or 0 if not found.
    */
   private float computeLeadingSpace() {
-    LineSpec nearestA;
-    LineSpec nearestB = null;
-
-    if (lineSpecType == LINE_SPEC_TYPE_B) nearestB = getNearestLineSpec(lineSpecB, getTextSize());
-    nearestA = getNearestLineSpec(lineSpecA, getTextSize());
-
-    // found a match on both return nearest type B
-    if (nearestB != null && nearestB.size == nearestA.size) return nearestB.leading;
-    return nearestA.leading;
+    LineSpec nearest = null;
+    if (lineSpecType == LINE_SPEC_TYPE_B) {
+      nearest = getExactLineSpec(lineSpecB, getTextSize());
+    }
+    if (nearest == null) {
+      nearest = getExactLineSpec(lineSpecA, getTextSize());
+    }
+    return nearest != null ? nearest.leading : 0;
   }
 
   /**
-   * Get the nearest line spec for the given size
-   * Todo: more intelligent way or to allow users to choose spec searching rather than nearest
+   * Get line spec for the given size
    */
-  private LineSpec getNearestLineSpec(List<LineSpec> specs, float size) {
-    float prev = Float.MAX_VALUE;
-    float next;
-    LineSpec nearest = null;
+  private LineSpec getExactLineSpec(List<LineSpec> specs, float size) {
     for (LineSpec spec : specs) {
-      next = Math.abs(size - spec.size);
-      if (next == 0) return spec;
-      if (next < prev) nearest = spec;
+      if (spec.size == size) return spec;
     }
-    return nearest;
+    return null;
   }
 
   /**
