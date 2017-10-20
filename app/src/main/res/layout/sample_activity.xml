@@ -1,20 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-  <com.giaquino.baselinedebug.sample.widget.BaselineGridTextView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="@string/lorem_ipsum_title"
-      android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical"
+      android:padding="16dp">
 
-  <com.giaquino.baselinedebug.sample.widget.BaselineGridTextView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="@string/lorem_ipsum_body"
-      android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+      <EditText
+          android:id="@+id/input_baseline_color"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:hint="Baseline Color"
+          android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+          style="@style/Widget.AppCompat.EditText" />
+
+      <EditText
+          android:id="@+id/input_baseline_spacing"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:hint="Baseline Spacing"
+          android:inputType="numberDecimal"
+          android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+          style="@style/Widget.AppCompat.EditText" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_baseline_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Baseline Type"
+        style="@style/Widget.AppCompat.Button.Colored" />
+
+    <Button
+        android:id="@+id/btn_baseline_toggle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Show / Hide Baseline"
+        style="@style/Widget.AppCompat.Button.Colored" />
+
+    <com.giaquino.baselinedebug.sample.widget.LeadingTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lorem_ipsum_title"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"/>
+
+    <com.giaquino.baselinedebug.sample.widget.BaselineGridTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lorem_ipsum_body"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+  </LinearLayout>
+</FrameLayout>

@@ -17,14 +17,20 @@
 
 <resources>
 
-  <attr name="lineHeightHint" format="dimension" />
+  <attr format="dimension" name="lineHeightHint" />
 
   <declare-styleable name="BaselineGridTextView">
-    <attr name="lineHeightMultiplierHint" format="float" />
+    <attr format="float" name="lineHeightMultiplierHint" />
     <attr name="lineHeightHint" />
-    <attr name="maxLinesByHeight" format="boolean" />
-    <attr name="android:textAppearance"/>
-    <attr name="android:fontFamily"/>
+    <attr format="boolean" name="maxLinesByHeight" />
+    <attr name="android:textAppearance" />
+    <attr name="android:fontFamily" />
   </declare-styleable>
 
+  <declare-styleable name="LeadingTextView">
+    <attr format="integer" name="lineSpecType">
+      <flag name="A" value="1" />
+      <flag name="B" value="2" />
+    </attr>
+  </declare-styleable>
 </resources>

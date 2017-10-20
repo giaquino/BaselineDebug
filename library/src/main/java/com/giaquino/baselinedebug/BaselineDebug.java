@@ -43,6 +43,10 @@ public class BaselineDebug {
     return view;
   }
 
+  public static boolean isShowing() {
+    return showing;
+  }
+
   private static int getWindowFlags() {
     return WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
         | WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;

@@ -11,9 +11,9 @@ import android.view.View;
 
 public class BaselineDebugView extends View {
 
-  public static final int TYPE_HORIZONTAL = 1;
-  public static final int TYPE_VERTICAL = 2;
-  public static final int TYPE_GRID = 3;
+  public static final int TYPE_HORIZONTAL = 0;
+  public static final int TYPE_VERTICAL = 1;
+  public static final int TYPE_GRID = 2;
 
   private final float ONE_DIP;
   private final float EIGHT_DIP;
@@ -97,5 +97,6 @@ public class BaselineDebugView extends View {
 
   public void setBaselineType(int baselineType) {
     this.baselineType = baselineType;
+    invalidate();
   }
 }
