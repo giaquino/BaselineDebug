@@ -7,6 +7,8 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import com.giaquino.baselinedebug.sample.R;
 import java.util.ArrayList;
@@ -84,7 +86,7 @@ public class LeadingTextView extends BaselineGridTextView
     final int index = parent.indexOfChild(this) + 1;
     if (index < parent.getChildCount()) {
       View child = parent.getChildAt(index);
-      if (child instanceof TextView) {
+      if (child instanceof TextView && !(child instanceof Button) && !(child instanceof EditText)) {
         nextTextView = (TextView) child;
         nextTextView.addOnAttachStateChangeListener(this);
       }

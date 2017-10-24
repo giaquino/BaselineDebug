@@ -22,7 +22,7 @@ task clean(type: Delete) {
   delete rootProject.buildDir
 }
 
-def versionMajor = 1
+def versionMajor = 2
 def versionMinor = 0
 def versionPatch = 0
 
@@ -38,5 +38,5 @@ ext {
   targetCompatibility = JavaVersion.VERSION_1_7
 
   versionCode = versionMajor * 1000000 + versionMinor * 10000 + versionPatch * 100
-  versionName = "${versionMajor}.${versionMinor}.${versionPatch}-alpha"
+  versionName = "${versionMajor}.${versionMinor}.${versionPatch}"
 }
